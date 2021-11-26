@@ -11,9 +11,23 @@
 public class kata3 {
     
     public static void main(String[] args) {
-        HistogramDisplay histo = new HistogramDisplay();
+        Histogram<String> histo = new Histogram<>();
 
-        histo.execute();
+        histo.increment("ulpgc.es");
+        histo.increment("ulpgc.es");
+        histo.increment("ulpgc.es");
+        histo.increment("ulpgc.es");
+
+        histo.increment("google.com");
+        histo.increment("google.com");
+        histo.increment("google.com");
+        histo.increment("google.com");
+        histo.increment("google.com");
+        
+        histo.increment("hotmail.es");
+        histo.increment("hotmail.es");
+        
+        new HistogramDisplay(histo).execute();
     }
 
     
