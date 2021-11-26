@@ -20,8 +20,11 @@ import org.jfree.ui.ApplicationFrame;
 
 public class HistogramDisplay extends ApplicationFrame{
     
-    public HistogramDisplay(){
+    private final Histogram<String> histogram;
+    
+    public HistogramDisplay(Histogram<String> histogram){
         super("HISTOGRAMA");
+        this.histogram = histogram;
         setContentPane(createPanel());
         pack();
     }
@@ -53,9 +56,8 @@ public class HistogramDisplay extends ApplicationFrame{
     
         
 
-        for(int i = 0; i < mails.length; i++)
-        {
-            dataset.addValue(i+3, "", mails[i]);
+        for (String key : histogram.keySet()) {
+            dataset.addValue(histogram.get(key), "", key);
         }
 
         return dataset;
